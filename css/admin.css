@@ -667,6 +667,10 @@ table tbody tr:hover {
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .settings-section h4 {
@@ -687,8 +691,36 @@ table tbody tr:hover {
   content: "\f3c5"; /* fa-map-marker-alt */
 }
 
+.settings-section:nth-child(2) h4::before {
+  content: "\f236"; /* fa-bed for Sleep Lounge */
+}
+
+.settings-section:nth-child(3) h4::before {
+  content: "\f52b"; /* fa-spa for Zen Zone */
+}
+
 .settings-section:last-child h4::before {
   content: "\f085"; /* fa-cogs */
+}
+
+.settings-section-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.settings-section-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.settings-section-content::-webkit-scrollbar-track {
+  background: var(--bg-light);
+  border-radius: 10px;
+}
+
+.settings-section-content::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 10px;
 }
 
 .campus-settings {
@@ -706,11 +738,15 @@ table tbody tr:hover {
   font-size: 0.9rem;
   margin-bottom: 12px;
   font-style: italic;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .settings-note i {
-  margin-right: 5px;
   color: var(--accent-color);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .settings-activities-list {
@@ -729,6 +765,7 @@ table tbody tr:hover {
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  word-break: break-word;
 }
 
 /* Activity time settings */
@@ -742,6 +779,8 @@ table tbody tr:hover {
   margin-bottom: 10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   border-left: 3px solid var(--accent-color);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .activity-time-setting:last-child {
@@ -753,17 +792,20 @@ table tbody tr:hover {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 1 1 200px;
 }
 
 .activity-name i {
   color: var(--accent-color);
   font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .activity-time-inputs {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .time-input {
@@ -777,6 +819,69 @@ table tbody tr:hover {
 .activity-time-inputs span {
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+
+/* Add specific styling for zen zone activities */
+.zen-zone-activity {
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  background-color: #f0f7ff;
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary-color);
+}
+
+.zen-zone-activity-title {
+  font-weight: 500;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zen-zone-activity-title i {
+  color: var(--primary-color);
+}
+
+.zen-zone-activity-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.zen-zone-activity-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.zen-zone-activity-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.zen-zone-activity-control label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.zen-zone-activity-control input,
+.zen-zone-activity-control select {
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Form action buttons at the bottom of settings cards */
+.settings-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eeeeee;
 }
 
 /* Message notifications */
