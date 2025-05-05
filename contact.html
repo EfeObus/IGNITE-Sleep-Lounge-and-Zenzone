@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - IGNITE Student Life</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/zen-zone.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Adding animation library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="contact-page">
+  <header>
+    <div class="header-top">
+      <img src="assets/ignite_original.jpeg" alt="IGNITE Logo" loading="lazy">
+    </div>
+    <h1>IGNITE SLEEP LOUNGE AND ZEN ZONE</h1>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="sleep-lounge.html">Sleep Lounge</a></li>
+        <li><a href="zen-zone.html">Zen Zone</a></li>
+        <li><a href="register.html">Registration</a></li>
+        <li><a href="staff-login.html">Staff</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section contact-hero">
+      <div class="hero-content">
+        <h1 class="animate__animated animate__fadeIn">Contact Us</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">We're here to answer your questions about the Sleep Lounge and Zen Zone</p>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <section class="contact-main">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-form-container animate__animated animate__fadeInLeft">
+            <div class="section-icon">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h2>Send Us a Message</h2>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="studentNo">Student No:</label>
+                <input type="text" id="studentNo" name="studentNo" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="service">Service:</label>
+                <select id="service" name="service">
+                  <option value="sleep-lounge">Sleep Lounge</option>
+                  <option value="zen-zone">Zen Zone</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+              </div>
+              
+              <button type="submit" class="cta-button pulse-button">Submit</button>
+            </form>
+            <div id="formSuccess" class="form-success hidden">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Message Sent!</h3>
+              <p>Thank you for contacting us. We'll respond to your inquiry within 24-48 hours.</p>
+            </div>
+          </div>
+
+          <div class="contact-info animate__animated animate__fadeInRight">
+            <h2>How to Reach Us</h2>
+            
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <p><a href="mailto:info@ignitestudentlife.com">info@ignitestudentlife.com</a></p>
+                <p class="response-time">We typically respond within 24 hours</p>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <p><a href="tel:4166755051">416.675.5051</a></p>
+                <p>Monday to Friday, 9:00am - 5:00pm</p>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Visit Us</h3>
+                <div class="locations">
+                  <div class="location">
+                    <h4>North Campus</h4>
+                    <p>KX204 – Above the Student Centre</p>
+                    <p>Monday to Friday, 9:00am - 4:00pm</p>
+                  </div>
+                  
+                  <div class="location">
+                    <h4>Lakeshore Campus</h4>
+                    <p>KB106 – Lower level of K Building</p>
+                    <p>Monday to Friday, 9:00am - 4:00pm</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-media">
+              <h3>Connect With Us</h3>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/ignitestudentlife" class="social-icon" aria-label="Facebook" target="_blank" style="background-color: #4CAF50; color: white; border: 2px solid white;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/ShareIGNITE" class="social-icon" aria-label="Twitter" target="_blank" style="background-color: #4CAF50; color: white; border: 2px solid white;"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/ShareIgnite/" class="social-icon" aria-label="Instagram" target="_blank" style="background-color: #4CAF50; color: white; border: 2px solid white;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/ignitestudentlife" class="social-icon" aria-label="YouTube" target="_blank" style="background-color: #4CAF50; color: white; border: 2px solid white;"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="container">
+        <h2 class="section-title">Find Us On Campus</h2>
+        <div class="campus-maps">
+          <div class="campus-map">
+            <div class="map-header">
+              <div class="feature-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>North Campus</h3>
+            </div>
+            <div class="map-placeholder clickable-map" data-url="https://maps.app.goo.gl/tGzhu2e1DaP5QRHx8">
+              <!-- Using actual Google Maps embed instead of image -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2881.1901074046!2d-79.60850312346694!3d43.7297151471861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3b5d38bb34e7%3A0x7ebbc485d8607d96!2sHumber%20College%20North%20Campus!5e0!3m2!1sen!2sca!4v1715641590451!5m2!1sen!2sca" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="map-overlay">
+                <a href="https://maps.app.goo.gl/tGzhu2e1DaP5QRHx8" class="directions-btn" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+              </div>
+            </div>
+            <p>KX204 – Above the Student Centre</p>
+          </div>
+          
+          <div class="campus-map">
+            <div class="map-header">
+              <div class="feature-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>Lakeshore Campus</h3>
+            </div>
+            <div class="map-placeholder clickable-map" data-url="https://maps.app.goo.gl/zdwS6oDwwTUdPoms8">
+              <!-- Using actual Google Maps embed instead of image -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.649294423146!2d-79.51349962346326!3d43.59950367118031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b47dcc270ed0f%3A0x94b55dc3b75c247e!2sHumber%20College%20Lakeshore%20Campus!5e0!3m2!1sen!2sca!4v1715641670799!5m2!1sen!2sca" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="map-overlay">
+                <a href="https://maps.app.goo.gl/zdwS6oDwwTUdPoms8" class="directions-btn" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+              </div>
+            </div>
+            <p>KB106 – Lower level of K Building</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>How do I register for the Sleep Lounge?</h3>
+              <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+              <p>You only need to register once by completing our online registration and waiver form. After registration, you can visit either campus location during operating hours and staff will check you in.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Is the Zen Zone available at both campuses?</h3>
+              <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+              <p>No, the Zen Zone is currently only available at the Lakeshore Campus in the basement of the K Building.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>How long can I use the Sleep Lounge?</h3>
+              <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+              <p>Sleep Lounge sessions are limited to one hour per student per day. This ensures that we can accommodate as many students as possible.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Do I need to bring anything?</h3>
+              <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+              <p>Just your student ID! We provide clean bedding and a personal eye mask for your use. For hygiene reasons, no outside bedding is permitted.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="animate__animated animate__fadeIn animate__delay-1s">Ready to Experience Our Services?</h2>
+        <p class="animate__animated animate__fadeIn animate__delay-2s">Register once and access both the Sleep Lounge and Zen Zone services.</p>
+        <a href="register.html" class="cta-button pulse-animation animate__animated animate__fadeIn animate__delay-3s">Register Now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/Ignite_logo.png" alt="IGNITE Logo" width="150">
+      </div>
+      <div class="footer-links">
+        <div class="footer-nav">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="sleep-lounge.html">Sleep Lounge</a></li>
+            <li><a href="zen-zone.html">Zen Zone</a></li>
+            <li><a href="register.html">Registration</a></li>
+            <li><a href="staff-login.html">Staff Login</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email: <a href="mailto:info@ignitestudentlife.com">info@ignitestudentlife.com</a></p>
+          <p>Phone: (123) 456-7890</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/ignitestudentlife" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/ShareIgnite/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ShareIGNITE" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/ignitestudentlife" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-locations">
+          <h3>Locations</h3>
+          <div class="location">
+            <h4>North Campus</h4>
+            <p>KX204 – Above the Student Centre</p>
+            <p><strong>Hours:</strong> Monday to Friday, 9:00am - 4:00pm</p>
+          </div>
+          <div class="location">
+            <h4>Lakeshore Campus</h4>
+            <p>KB106 – Lower level of K Building</p>
+            <p><strong>Hours:</strong> Monday to Friday, 9:00am - 4:00pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 IGNITE Student Life | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/contact.js"></script>
+  <script>
+    // Add scroll reveal animations and ensure FAQ accordion works
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add scroll animation to elements
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__fadeIn');
+            entry.target.style.opacity = 1;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.1});
+      
+      document.querySelectorAll('.map-section, .accordion-item').forEach(el => {
+        el.style.opacity = 0;
+        observer.observe(el);
+      });
+
+      // Remove the duplicate accordion code that conflicts with contact.js
+      // The accordion functionality is properly handled in the initAccordion() function
+    });
+  </script>
+</body>
+</html>

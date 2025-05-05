@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Portal - IGNITE Student Life</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/staff-portal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <img src="assets/ignite_original.jpeg" alt="IGNITE Logo" loading="lazy">
+    </div>
+    <h1>IGNITE SLEEP LOUNGE AND ZEN ZONE</h1>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="sleep-lounge.html">Sleep Lounge</a></li>
+        <li><a href="zen-zone.html">Zen Zone</a></li>
+        <li><a href="register.html">Registration</a></li>
+        <li><a href="staff-portal.html" class="active">Staff</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="fade-in">Staff Portal</h1>
+        <p class="fade-in delay-1">Manage the Sleep Lounge and Zen Zone services</p>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <section class="staff-portal-section">
+      <div class="portal-container">
+        <!-- Staff Welcome Panel -->
+        <div class="staff-welcome-panel">
+          <div class="staff-info">
+            <div class="staff-avatar" id="staff-avatar"></div>
+            <div class="staff-details">
+              <h3 id="staff-name">Staff Name</h3>
+              <p id="staff-role">Sleep Lounge Staff</p>
+            </div>
+          </div>
+          
+          <div class="portal-controls">
+            <!-- Service Toggle -->
+            <div class="toggle-container">
+              <span>Service:</span>
+              <div class="toggle-btns">
+                <button id="sleep-toggle" class="toggle-btn toggle-active" onclick="togglePortal('sleep-lounge')">
+                  <i class="fas fa-bed"></i> Sleep Lounge
+                </button>
+                <button id="zen-toggle" class="toggle-btn" onclick="togglePortal('zen-zone')">
+                  <i class="fas fa-spa"></i> Zen Zone
+                </button>
+              </div>
+            </div>
+            
+            <!-- Campus Toggle -->
+            <div class="toggle-container">
+              <span>Campus:</span>
+              <div class="toggle-btns">
+                <button id="north-toggle" class="toggle-btn toggle-active" onclick="toggleCampus('north')">
+                  <i class="fas fa-building"></i> North
+                </button>
+                <button id="lakeshore-toggle" class="toggle-btn" onclick="toggleCampus('lakeshore')">
+                  <i class="fas fa-water"></i> Lakeshore
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <button id="logout-btn" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+
+        <!-- Sleep Lounge Portal -->
+        <div id="sleep-lounge-portal" class="sleep-portal">
+          <div class="dashboard-grid">
+            <!-- Main Panel -->
+            <div class="main-panel">
+              <!-- Student Check-In/Out Panel -->
+              <div class="panel-header">
+                <h2>Student Check-In/Out</h2>
+              </div>
+              <div class="panel-body">
+                <div class="search-container">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text" id="student-search" class="search-input" placeholder="Search by student ID, name, or email...">
+                  <button id="search-btn" class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div id="student-list" class="student-list">
+                  <!-- Student cards will be added dynamically -->
+                </div>
+                
+                <!-- Bed Status Panel -->
+                <div class="panel-header">
+                  <h2>Bed Status</h2>
+                </div>
+                <div class="beds-grid" id="beds-grid">
+                  <!-- Bed items will be added dynamically -->
+                </div>
+                <button id="refresh-beds" class="refresh-btn">
+                  <i class="fas fa-sync-alt"></i> Refresh Bed Status
+                </button>
+              </div>
+            </div>
+            
+            <!-- Side Widgets Panel -->
+            <div class="widgets-panel">
+              <!-- Statistical Widgets -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Statistics</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="stats-grid">
+                    <div class="stat-card">
+                      <div class="stat-value" id="active-visits-count">0</div>
+                      <div class="stat-label">Active Visits</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-value" id="available-beds-count">0</div>
+                      <div class="stat-label">Available Beds</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-value" id="todays-visits-count">0</div>
+                      <div class="stat-label">Today's Visits</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-value" id="avg-duration">0</div>
+                      <div class="stat-label">Avg. Duration (min)</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Recent Activity Panel -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Recent Activity</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="activity-feed" id="activity-feed">
+                    <!-- Activity items will be added dynamically -->
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Quick Actions Panel (NEW) -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Quick Actions</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="quick-actions">
+                    <button class="action-btn" onclick="exportVisitData()">
+                      <i class="fas fa-file-export"></i> Export Today's Data
+                    </button>
+                    <button class="action-btn" onclick="printBedStatus()">
+                      <i class="fas fa-print"></i> Print Bed Status
+                    </button>
+                    <button class="action-btn" onclick="reportIssue()">
+                      <i class="fas fa-exclamation-triangle"></i> Report Issue
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Zen Zone Portal -->
+        <div id="zen-zone-portal" class="zen-portal" style="display: none;">
+          <div class="dashboard-grid">
+            <!-- Main Panel -->
+            <div class="main-panel">
+              <!-- Student Check-In/Out Panel -->
+              <div class="panel-header">
+                <h2>Student Check-In/Out</h2>
+              </div>
+              <div class="panel-body">
+                <div class="search-container">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text" id="zen-student-search" class="search-input" placeholder="Search by student ID, name, or email...">
+                  <button id="zen-search-btn" class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div id="zen-student-list" class="student-list">
+                  <!-- Student cards will be added dynamically -->
+                </div>
+                
+                <!-- Zen Zone Status Panel -->
+                <div class="panel-header">
+                  <h2>Zen Zone Status</h2>
+                </div>
+                <div class="zen-stations-grid" id="zen-stations-grid">
+                  <!-- Station items will be added dynamically -->
+                </div>
+                <button id="refresh-stations" class="refresh-btn">
+                  <i class="fas fa-sync-alt"></i> Refresh Station Status
+                </button>
+                
+                <!-- Today's Activities Panel -->
+                <div class="panel-header">
+                  <h2>Today's Activities</h2>
+                </div>
+                <div class="activities-grid" id="activities-grid">
+                  <div class="activity-card">
+                    <i class="fas fa-mug-hot activity-icon-large"></i>
+                    <div class="activity-title">Tea Service</div>
+                    <div class="activity-time-slot">10:00 AM - 2:00 PM</div>
+                  </div>
+                  <div class="activity-card">
+                    <i class="fas fa-paint-brush activity-icon-large"></i>
+                    <div class="activity-title">Paint Session</div>
+                    <div class="activity-time-slot">1:00 PM - 3:00 PM</div>
+                  </div>
+                  <div class="activity-card">
+                    <i class="fas fa-book activity-icon-large"></i>
+                    <div class="activity-title">Reading Corner</div>
+                    <div class="activity-time-slot">9:00 AM - 4:00 PM</div>
+                  </div>
+                  <div class="activity-card">
+                    <i class="fas fa-spa activity-icon-large"></i>
+                    <div class="activity-title">Meditation</div>
+                    <div class="activity-time-slot">11:00 AM - 1:00 PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Side Widgets Panel -->
+            <div class="widgets-panel">
+              <!-- Statistical Widgets -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Statistics</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="stats-grid">
+                    <div class="stat-card">
+                      <div class="stat-value" id="zen-active-visits-count">0</div>
+                      <div class="stat-label">Active Visitors</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-value" id="zen-available-stations-count">0</div>
+                      <div class="stat-label">Available Stations</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-value" id="zen-todays-visits-count">0</div>
+                      <div class="stat-label">Today's Visitors</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-value" id="zen-avg-duration">0</div>
+                      <div class="stat-label">Avg. Visit Duration</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Recent Activity Panel -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Recent Activity</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="activity-feed" id="zen-activity-feed">
+                    <!-- Activity items will be added dynamically -->
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Daily Tasks Panel -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Daily Tasks</h3>
+                </div>
+                <div class="widget-body">
+                  <ul class="tasks-list" id="zen-tasks-list">
+                    <li class="task-item">
+                      <div class="task-checkbox" data-task="refresh-tea"><i class="fas fa-check"></i></div>
+                      <div class="task-label">Refresh tea station</div>
+                    </li>
+                    <li class="task-item">
+                      <div class="task-checkbox" data-task="restock-materials"><i class="fas fa-check"></i></div>
+                      <div class="task-label">Restock materials</div>
+                    </li>
+                    <li class="task-item">
+                      <div class="task-checkbox" data-task="check-seating"><i class="fas fa-check"></i></div>
+                      <div class="task-label">Check seating</div>
+                    </li>
+                    <li class="task-item">
+                      <div class="task-checkbox" data-task="update-wall"><i class="fas fa-check"></i></div>
+                      <div class="task-label">Update gratitude wall</div>
+                    </li>
+                    <li class="task-item">
+                      <div class="task-checkbox" data-task="inspect-meditation"><i class="fas fa-check"></i></div>
+                      <div class="task-label">Inspect meditation area</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- Quick Actions Panel (NEW) -->
+              <div class="widget">
+                <div class="widget-header">
+                  <h3>Quick Actions</h3>
+                </div>
+                <div class="widget-body">
+                  <div class="quick-actions">
+                    <button class="action-btn" onclick="exportZenVisitData()">
+                      <i class="fas fa-file-export"></i> Export Today's Data
+                    </button>
+                    <button class="action-btn" onclick="manageActivities()">
+                      <i class="fas fa-calendar-alt"></i> Manage Activities
+                    </button>
+                    <button class="action-btn" onclick="reportZenIssue()">
+                      <i class="fas fa-exclamation-triangle"></i> Report Issue
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Check-out Modal -->
+  <div id="checkout-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Check-out Student</h3>
+        <button class="modal-close" id="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="checkout-info">
+          <dl>
+            <dt>Student:</dt>
+            <dd id="checkout-student-name">Student Name</dd>
+            
+            <dt>ID:</dt>
+            <dd id="checkout-student-id">N12345678</dd>
+            
+            <dt>Check-in Time:</dt>
+            <dd id="checkout-checkin-time">10:30 AM</dd>
+            
+            <dt>Duration:</dt>
+            <dd id="checkout-duration">45 minutes</dd>
+          </dl>
+        </div>
+        
+        <div class="form-group">
+          <label for="checkout-notes">Notes (Optional):</label>
+          <textarea id="checkout-notes" rows="3" placeholder="Add any notes about this visit"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel-checkout" class="btn">Cancel</button>
+        <button id="confirm-checkout" class="btn btn-checkin">Confirm Check-out</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Activity Management Modal (NEW) -->
+  <div id="activity-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Manage Today's Activities</h3>
+        <button class="modal-close" id="close-activity-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="activity-form">
+          <div class="form-group">
+            <label for="activity-name">Activity Name:</label>
+            <input type="text" id="activity-name" placeholder="Enter activity name">
+          </div>
+          
+          <div class="form-group">
+            <label for="activity-icon">Icon:</label>
+            <select id="activity-icon">
+              <option value="mug-hot">Tea Cup</option>
+              <option value="paint-brush">Paint Brush</option>
+              <option value="book">Book</option>
+              <option value="spa">Meditation</option>
+              <option value="music">Music</option>
+              <option value="puzzle-piece">Puzzle</option>
+              <option value="hands">Crafts</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="start-time">Start Time:</label>
+              <input type="time" id="start-time">
+            </div>
+            
+            <div class="form-group">
+              <label for="end-time">End Time:</label>
+              <input type="time" id="end-time">
+            </div>
+          </div>
+          
+          <button id="add-activity-btn" class="btn btn-checkin">Add Activity</button>
+        </div>
+        
+        <div class="current-activities">
+          <h4>Current Activities</h4>
+          <ul id="activity-list">
+            <!-- Activities will be added dynamically -->
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="close-activity-btn" class="btn">Close</button>
+        <button id="save-activities-btn" class="btn btn-checkin">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Issue Report Modal (NEW) -->
+  <div id="issue-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Report an Issue</h3>
+        <button class="modal-close" id="close-issue-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="issue-type">Issue Type:</label>
+          <select id="issue-type">
+            <option value="technical">Technical Problem</option>
+            <option value="facility">Facility Issue</option>
+            <option value="student">Student Concern</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="issue-priority">Priority:</label>
+          <select id="issue-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="issue-description">Description:</label>
+          <textarea id="issue-description" rows="4" placeholder="Describe the issue in detail"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel-issue" class="btn">Cancel</button>
+        <button id="submit-issue" class="btn btn-checkin">Submit Issue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toast" class="toast"></div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/Ignite_logo.png" alt="IGNITE Logo" width="150">
+      </div>
+      <div class="footer-links">
+        <div class="footer-nav">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="sleep-lounge.html">Sleep Lounge</a></li>
+            <li><a href="zen-zone.html">Zen Zone</a></li>
+            <li><a href="register.html">Registration</a></li>
+            <li><a href="staff-portal.html">Staff Portal</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email: <a href="mailto:info@ignitestudentlife.com">info@ignitestudentlife.com</a></p>
+          <p>Phone: (416) 675-5088</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/ignitestudentlife" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/ShareIgnite/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ShareIGNITE" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/ignitestudentlife" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-locations">
+          <h3>Locations</h3>
+          <div class="location">
+            <h4>North Campus</h4>
+            <p>KX204 – Above the Student Centre</p>
+            <p><strong>Hours:</strong> Monday to Friday, 9:00am - 4:00pm</p>
+          </div>
+          <div class="location">
+            <h4>Lakeshore Campus</h4>
+            <p>KB106 – Lower level of K Building</p>
+            <p><strong>Hours:</strong> Monday to Friday, 9:00am - 4:00pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 IGNITE Student Life | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/staff-portal.js"></script>
+</body>
+</html>

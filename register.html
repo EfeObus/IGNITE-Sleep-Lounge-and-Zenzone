@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - IGNITE Student Life</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/zen-zone.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="register-page">
+  <header>
+    <div class="header-top">
+      <img src="assets/ignite_original.jpeg" alt="IGNITE Logo" loading="lazy">
+    </div>
+    <h1>IGNITE SLEEP LOUNGE AND ZEN ZONE</h1>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="sleep-lounge.html">Sleep Lounge</a></li>
+        <li><a href="zen-zone.html">Zen Zone</a></li>
+        <li><a href="register.html" class="active">Registration</a></li>
+        <li><a href="staff-login.html">Staff</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero-section register-hero">
+      <div class="hero-content">
+        <h1 class="fade-in">Student Registration</h1>
+        <p class="fade-in delay-1">Register once to access both the Sleep Lounge and Zen Zone services</p>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <section class="registration-section">
+      <div class="container">
+        <div class="registration-intro">
+          <div class="feature-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h2>One-Time Registration</h2>
+          <p>Complete this form just once to gain access to both the Sleep Lounge and Zen Zone services at any time. After registration, simply show your student ID to staff when you visit.</p>
+        </div>
+        
+        <div class="registration-container">
+          <div class="registration-progress">
+            <div class="progress-step active" data-step="1">
+              <div class="step-number">1</div>
+              <div class="step-label">Personal Info</div>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step" data-step="2">
+              <div class="step-number">2</div>
+              <div class="step-label">Waiver</div>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step" data-step="3">
+              <div class="step-number">3</div>
+              <div class="step-label">Confirmation</div>
+            </div>
+          </div>
+          
+          <form id="registration-form" class="modern-form">
+            <div class="form-step active" data-step="1">
+              <h3>Student Information</h3>
+              <div class="form-group">
+                <label for="student-id">Student Number:</label>
+                <input type="text" id="student-id" name="student-id" required>
+              </div>
+
+              <div class="form-group">  
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="campus">Preferred Campus:</label>
+                <select id="campus" name="campus" required>
+                  <option value="">Select Campus</option>
+                  <option value="north">North Campus</option>
+                  <option value="lakeshore">Lakeshore Campus</option>
+                </select>
+              </div>
+              
+              <div class="form-buttons">
+                <button type="button" class="next-button cta-button">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+            
+            <div class="form-step" data-step="2">
+              <h3>Waiver and Terms of Use</h3>
+              <div class="waiver-section">
+                <div class="waiver-text">
+                  <div class="waiver-header">
+                    <div class="waiver-icon">
+                      <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h4>Sleep Lounge & Zen Zone Guidelines</h4>
+                  </div>
+                  
+                  <p>
+                    We want your experience in the IGNITE services to be the best possible. Please note the following guidelines to ensure privacy, safety, and a positive experience for all students:
+                  </p>
+                  
+                  <div class="waiver-grid">
+                    <div class="waiver-column">
+                      <h5><i class="fas fa-check-circle"></i> Required for Entry</h5>
+                      <ul>
+                        <li>Present your student card (no other ID accepted)</li>
+                        <li>Complete this registration form once</li>
+                      </ul>
+                      
+                      <h5><i class="fas fa-volume-mute"></i> Quiet Environment</h5>
+                      <ul>
+                        <li>No talking in quiet zones</li>
+                        <li>Devices on silent mode</li>
+                        <li>Use headphones at low volume</li>
+                        <li>Set vibrating alarms only</li>
+                      </ul>
+                    </div>
+                    
+                    <div class="waiver-column">
+                      <h5><i class="fas fa-ban"></i> Not Permitted</h5>
+                      <ul>
+                        <li>No food or drinks</li>
+                        <li>No more than one person per bed/station</li>
+                        <li>No flash photography</li>
+                        <li>No aromatherapy devices or sprays</li>
+                        <li>No outside bedding (for hygiene reasons)</li>
+                      </ul>
+                      
+                      <h5><i class="fas fa-info-circle"></i> Important Notes</h5>
+                      <ul>
+                        <li>60-minute time limit per session</li>
+                        <li>One session per student per day</li>
+                        <li>Staff may tap you if you don't wake up</li>
+                        <li>Wipe down stations after use</li>
+                        <li>IGNITE is not responsible for lost/stolen items</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div class="waiver-agreement">
+                    <h5>Agreement and Liability Waiver</h5>
+                    <p>By checking the box below, I acknowledge that:</p>
+                    <ul>
+                      <li>I have read and agree to follow all guidelines.</li>
+                      <li>I understand that using these services is entirely at my own risk.</li>
+                      <li>I release IGNITE Student Life from any liability for any injury or loss that may occur during my use of their services.</li>
+                      <li>I consent to my registration information being stored for verification purposes.</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                  <input type="checkbox" id="waiver-agree" name="waiver-agree" required>
+                  <label for="waiver-agree">I have read, understand, and agree to the terms and waiver above.</label>
+                </div>
+                
+                <div class="form-group">
+                  <label for="signature">Digital Signature (Type Full Name):</label>
+                  <input type="text" id="signature" name="signature" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="date">Date:</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="form-buttons">
+                  <button type="button" class="back-button"><i class="fas fa-arrow-left"></i> Back</button>
+                  <button type="submit" class="submit-button cta-button">Submit Registration</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          
+          <div id="registration-confirmation" class="confirmation-step" data-step="3">
+            <div class="confirmation-content">
+              <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Registration Successful!</h3>
+              <p>Thank you for registering with IGNITE Sleep Lounge and Zen Zone services.</p>
+              <p>We've sent a confirmation to your email with all the details.</p>
+              
+              <div class="next-steps">
+                <h4>What's Next?</h4>
+                <ol>
+                  <li>Visit any Sleep Lounge or Zen Zone location during operating hours</li>
+                  <li>Present your student ID to the staff member on duty</li>
+                  <li>Staff will check you in and direct you to an available space</li>
+                  <li>Enjoy your relaxation time!</li>
+                </ol>
+              </div>
+              
+              <div class="confirmation-buttons">
+                <a href="Index.html" class="home-button"><i class="fas fa-home"></i> Return to Home</a>
+                <a href="sleep-lounge.html" class="service-button">Sleep Lounge Info</a>
+                <a href="zen-zone.html" class="service-button">Zen Zone Info</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/Ignite_logo.png" alt="IGNITE Logo" width="150">
+      </div>
+      <div class="footer-links">
+        <div class="footer-nav">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="sleep-lounge.html">Sleep Lounge</a></li>
+            <li><a href="zen-zone.html">Zen Zone</a></li>
+            <li><a href="register.html">Registration</a></li>
+            <li><a href="staff-login.html">Staff Login</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email: <a href="mailto:info@ignitestudentlife.com">info@ignitestudentlife.com</a></p>
+          <p>Phone: (123) 456-7890</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/ignitestudentlife" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/ShareIgnite/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/ShareIGNITE" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/ignitestudentlife" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-locations">
+          <h3>Locations</h3>
+          <div class="location">
+            <h4>North Campus</h4>
+            <p>KX204 – Above the Student Centre</p>
+            <p><strong>Hours:</strong> Monday to Friday, 9:00am - 4:00pm</p>
+          </div>
+          <div class="location">
+            <h4>Lakeshore Campus</h4>
+            <p>KB106 – Lower level of K Building</p>
+            <p><strong>Hours:</strong> Monday to Friday, 9:00am - 4:00pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 IGNITE Student Life | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/register.js"></script>
+</body>
+</html>
